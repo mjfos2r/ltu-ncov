@@ -1,9 +1,9 @@
 Customizing your Auspice visualization
 ======================================
 
-Just as we can specify a build-specific analysis options in the ``builds.yaml`` file, we can also specify build-specific visualization options in this directory.
+Just as we can specify a build-specific analysis options in the workflow config file, we can also specify build-specific visualization options in this directory.
 
-Looking at the ``builds.yaml`` file, the last few lines are:
+Looking at the workflow config file, the last few lines are:
 
 .. code:: yaml
 
@@ -33,12 +33,12 @@ Make sure to also add
    files:
      colors: "my_profiles/<name>/colors.tsv"
 
-to your ``builds.yaml`` file.
+to your workflow config file.
 
 Changing the dataset description
 --------------------------------
 
-The dataset description, which appears below the visualizations, is read from a file which is specified in ``builds.yaml``. Per-build description can be set by specifying them in the build.
+The dataset description, which appears below the visualizations, is read from a file which is specified in the workflow config file. Per-build description can be set by specifying them in the build.
 
 .. code:: yaml
 
@@ -46,7 +46,7 @@ The dataset description, which appears below the visualizations, is read from a 
      north-america: # name of the build; this can be anything
        description: my_profiles/example/north-america-description.md
 
-If that is not provided, then a per-run description is used, also specified in ``builds.yaml``:
+If that is not provided, then a per-run description is used, also specified in the workflow config file:
 
 .. code:: yaml
 

@@ -41,7 +41,7 @@ my_profiles/example_multiple_inputs/my_auspice_config.json
 
 ## Setting up the config
 
-You can define a single input dataset in `builds.yaml` as follows.
+You can define a single input dataset in the workflow config file as follows.
 
 ```yaml
 inputs:
@@ -98,7 +98,7 @@ We are going to use this to our advantage, by adding a coloring to highlight the
 
 The first stage of the pipeline performs filtering, masking and alignment  (note that this is different to subsampling).
 If we have multiple inputs, this stage of the pipeline is done independently for each input.
-The parameters used for filtering steps are typically defined by the "filter" dict in the `builds.yaml`, with sensible defaults provided (see `defaults/parameters.yaml`).
+The parameters used for filtering steps are typically defined by the "filter" dict in the the workflow config file, with sensible defaults provided (see `defaults/parameters.yaml`).
 For multiple inputs, we can overwrite these for each input.
 
 As an example, in this tutorial let's ensure we include all the `aus` samples, even if they may be partial genomes etc
@@ -213,7 +213,7 @@ custom_rules:
 Currently we can handle files stored on S3 buckets rather than remotely by simply declaring this as the input location:
 
 ```yaml
-# your pipeline's builds.yaml config
+# your workflow config file
 inputs:
   - name: worldwide
     metadata: "s3://your_bucket_name/metadata.tsv"

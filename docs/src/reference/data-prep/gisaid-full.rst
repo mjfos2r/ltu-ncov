@@ -37,7 +37,7 @@ Agree to the terms and conditions and download the corresponding file (named lik
 
    If “FASTA” or “metadata” options do not appear in the “Download packages” window, use the “Contact” link in the top-right of the GISAID website to request access to these files.
 
-`We use these data in our official Nextstrain builds <https://github.com/nextstrain/ncov-ingest>`__. If you have sufficient computing resources, you can use these files as ``inputs`` for the workflow in a ``builds.yaml`` like the one described above. However, the workflow starts by aligning all input sequences to a reference and this alignment can take hours to complete even with multiple cores. As an alternative, we show how to select specific data from these large files prior to starting the workflow.
+`We use these data in our official Nextstrain builds <https://github.com/nextstrain/ncov-ingest>`__. If you have sufficient computing resources, you can use these files as ``inputs`` for the workflow in a the workflow config file like the one described above. However, the workflow starts by aligning all input sequences to a reference and this alignment can take hours to complete even with multiple cores. As an alternative, we show how to select specific data from these large files prior to starting the workflow.
 
 Prepare GISAID data for Augur
 -----------------------------

@@ -16,16 +16,16 @@ If you'd like to tweak the parameterization, **you can override any of these val
 Adding custom rules
 -------------------
 
-Insert your own custom Snakemake rules into the default workflow without modifying the main Snakemake files, by defining a list of ``custom_rules`` in your ``builds.yaml`` file. Each entry in the ``custom_rules`` list should be a path to a valid Snakemake file (e.g., “my_rules.smk”). The main workflow will detect these custom rules and include them after all other rules have been defined.
+Insert your own custom Snakemake rules into the default workflow without modifying the main Snakemake files, by defining a list of ``custom_rules`` in your workflow config file. Each entry in the ``custom_rules`` list should be a path to a valid Snakemake file (e.g., “my_rules.smk”). The main workflow will detect these custom rules and include them after all other rules have been defined.
 
-As an example, the Nextstrain team's workflow defines custom export rules that modify the default auspice JSONs. These rules are defined in the ``builds.yaml`` file as follows:
+As an example, the Nextstrain team's workflow defines custom export rules that modify the default auspice JSONs. These rules are defined in the workflow config file as follows:
 
 .. code:: yaml
 
    custom_rules:
      - workflow/snakemake_rules/export_for_nextstrain.smk
 
-To modify rules for the example profile, create a new file named ``my_profiles/example/my_rules.smk`` and modify the ``builds.yaml`` file for the example profile to include the following lines:
+To modify rules for the example profile, create a new file named ``my_profiles/example/my_rules.smk`` and modify the workflow config file for the example profile to include the following lines:
 
 .. code:: yaml
 
@@ -176,7 +176,7 @@ For each build, you can specify which categorical metadata fields to use for tra
 
    <!-- TODO: can someone please check this section for me? the existing docs were unclear to me -->
 
-To specify this on a per-build basis, add a block like the following to your ``my_profiles/<name>/builds.yaml`` file:
+To specify this on a per-build basis, add a block like the following to your workflow config file:
 
 .. code:: yaml
 

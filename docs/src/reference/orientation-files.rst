@@ -19,15 +19,15 @@ Custom configuration files
 
 These will be stored in ``my-analyses/``.
 
-- ``my-analyses/.../builds.yaml``: workflow configuration file used by ``--configfile`` where you can define and parameterize the builds you want to run. `See the customization guide <customizing-analysis.md>`__.
+- A workflow configuration file used by ``--configfile`` where you can define and parameterize the builds you want to run. `See the customization guide <customizing-analysis.md>`__.
 
 Internal workflow definition files
 ----------------------------------
 
 -  ``Snakefile``: entry point for Snakemake commands that also validates inputs. No modification needed.
--  ``workflow/snakemake_rules/main_workflow.smk``: defines rules for running each step in the analysis. Modify your ``builds.yaml`` file, rather than hardcode changes into the snakemake file itself.
+-  ``workflow/snakemake_rules/main_workflow.smk``: defines rules for running each step in the analysis. Modify your workflow config file, rather than hardcode changes into the snakemake file itself.
 -  ``workflow/envs/nextstrain.yaml``: specifies computing environment needed to run workflow with the ``--use-conda`` flag. No modification needed.
--  ``workflow/schemas/config.schema.yaml``: defines format (e.g., required fields and types) for ``builds.yaml`` files. This can be a useful reference, but no modification needed.
+-  ``workflow/schemas/config.schema.yaml``: defines format (e.g., required fields and types) for workflow config files. This can be a useful reference, but no modification needed.
 -  ``scripts/``: helper scripts for common tasks. No modification needed.
 
 Non-tracked files

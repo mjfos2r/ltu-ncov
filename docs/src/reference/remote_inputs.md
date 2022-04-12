@@ -104,7 +104,7 @@ This means that the full GenBank metadata and sequences are typically updated a 
 
 ## Starting your build from these intermediates
 
-Each workflow defines one or more inputs in the `builds.yaml` file.
+Each workflow defines one or more inputs in the workflow config file.
 
 In the simplest form, an input specifies a local path to some metadata and sequences, like so:
 

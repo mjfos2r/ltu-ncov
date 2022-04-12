@@ -72,7 +72,7 @@ From the resulting “Download” window, select “Input for the Augur pipeline
 
 Select the “Download” button and save the resulting file to the ``data/`` directory with a descriptive name like ``gisaid_washington.tar``. This tar archive contains compressed metadata and sequences named like ``1622567829294.metadata.tsv.xz`` and ``1622567829294.sequences.fasta.xz``, respectively.
 
-You can use this tar file as an input for the Nextstrain workflow, as shown below. The workflow will extract the data for you. Create a new configuration file, ``builds.yaml``, in the top-level of the ``ncov`` directory that defines your analysis or “builds”.
+You can use this tar file as an input for the Nextstrain workflow, as shown below. The workflow will extract the data for you. Create a new workflow config file, in the top-level of the ``ncov`` directory that defines your analysis or “builds”.
 
 .. code:: yaml
 
@@ -169,7 +169,7 @@ Agree to the terms and conditions and download the corresponding file (named lik
 
 This compressed tar archive contains metadata and sequences corresponding to `a recent Nextstrain build for that region <https://nextstrain.org/sars-cov-2>`__ with names like ``ncov_north-america.tsv`` and ``ncov_north-america.fasta``, respectively. For example, the “North America” download contains data from `Nextstrain's North America build <https://nextstrain.org/ncov/north-america>`__. These regional Nextstrain builds contain data from a specific region and contextual data from all other regions in the world. By default, GISAID provides these “nextregions” data in the “Input for the Augur pipeline” format.
 
-As with the tar archive from the search results above, you can use the “nextregions” compressed tar archives as input to the Nextstrain workflow and the workflow will extract the appropriate contents for you. For example, you could update your ``inputs`` in the ``builds.yaml`` file from above to include the North American data as follows.
+As with the tar archive from the search results above, you can use the “nextregions” compressed tar archives as input to the Nextstrain workflow and the workflow will extract the appropriate contents for you. For example, you could update your ``inputs`` in the workflow config file from above to include the North American data as follows.
 
 .. code:: yaml
 
