@@ -1,34 +1,38 @@
 Orientation: so, what does Nextstrain *do*?
 ===========================================
 
-| Nextstrain has two main parts: \* **Augur performs the bioinformatic analyses** required to produce a tree, map, and other inferences from your input data.
-| \* The outputs of augur form the input for **Auspice, which provides the visualizations** you see on Nextstrain.org
+Nextstrain has two main parts:
 
-You can find more information about how these tools fit together `here <https://nextstrain.org/docs/getting-started/introduction>`__. We’ll come back to Auspice when we get to the `visualization <../visualization/sharing.md>`__ section.
+- :term:`docs.nextstrain.org:Augur` **performs the bioinformatic analyses** required to produce a tree, map, and other inferences from your input data.
+- The outputs of Augur form the input for :term:`docs.nextstrain.org:Auspice`, **which provides the visualizations** you see on Nextstrain.org
 
-First, let’s take a look at how augur works.
+You can find more information about how these tools fit together :doc:`here <docs.nextstrain.org:learn/parts>`. We'll come back to Auspice when we get to the `visualization <../visualization/sharing.html>`__ section.
+
+First, let's take a look at how Augur works.
 
 How bioinformatic analyses are managed
 --------------------------------------
 
-At its core, augur is a collection of Python scripts, each of which handles one step in the bioinformatic analyses necessary for visualization with auspice.
+At its core, Augur is a collection of Python scripts, each of which handles one step in the bioinformatic analyses necessary for visualization with Auspice.
 
-As you might imagine, keeping track of the input and output files from each step individually can get very confusing, very quickly. So, **to manage all of these steps, we use a workflow manager called snakemake**.
+As you might imagine, keeping track of the input and output files from each step individually can get very confusing, very quickly. So, **to manage all of these steps, we use a workflow manager called Snakemake**.
 
-   *Note: there are many other workflow managers out there, such as nextflow. While we fully encourage you to use whichever workflow tools you prefer, we only provide support and maintenance for snakemake.*
+.. note::
+
+   There are many other workflow managers out there, such as Nextflow. While we fully encourage you to use whichever workflow tools you prefer, we only provide support and maintenance for Snakemake.
 
 Snakemake is an incredibly powerful workflow manager with many complex features. For our purposes, though, we only need to understand a few things:
 
--  **Each step in a workflow is called a “rule.”** The inputs, outputs, and shell commands for each step/rule are defined in a ``.smk`` file.
+-  **Each step in a workflow is called a "rule."** The inputs, outputs, and shell commands for each step/rule are defined in a ``.smk`` file.
 -  Each rule has a number of **parameters, which are specified in a ``.yaml`` file**.
--  Each rule produces **output (called a “dependency”) which may be used as input to other rules**.
+-  Each rule produces **output (called a "dependency") which may be used as input to other rules**.
 
-Overview of a Nextstrain “build” (analysis workflow)
+Overview of a Nextstrain "build" (analysis workflow)
 ----------------------------------------------------
 
-Below is an illustration of each step in a standard Nextstrain analysis workflow. Dependencies (output files from one step that act as input to the next) are indicated by grey arrows. Input files which must be provided are indicated with red outlines. As you can see in yellow, the final output is a JSON file for visualization in auspice.
+Below is an illustration of each step in a standard Nextstrain analysis workflow. Dependencies (output files from one step that act as input to the next) are indicated by grey arrows. Input files which must be provided are indicated with red outlines. As you can see in yellow, the final output is a JSON file for visualization in Auspice.
 
-Required input files (e.g. the sequence data generated in the `data preparation section <../guides/data-prep.md>`__, or other files which are part of this repo) are indicated with red outlines. We’ll walk through each of these in detail in the next section.
+Required input files (e.g. the sequence data generated in the `data preparation section <../reference/data-prep>`__, or other files which are part of this repo) are indicated with red outlines. We'll walk through each of these in detail in the next section.
 
 .. figure:: ../images/basic_snakemake_build.png
    :alt: snakemake_workflow
@@ -39,9 +43,9 @@ We encourage you to take a look at ```main_workflow.smk`` <https://github.com/ne
 
    Note: Not all of the rules included are essential, or may even be desirable for your analysis. Your build may be able to be made a lot simpler, depending on your goals.
 
-What’s a “build?”
+What's a "build?"
 ~~~~~~~~~~~~~~~~~
 
-The components in this diagram **constitute a Nextstrain “build” – i.e., a set of commands, parameters and input files which work together to reproducibly execute bioinformatic analyses and generate a JSON for visualization with auspice.** You can learn more about builds `here <https://nextstrain.org/docs/bioinformatics/what-is-a-build>`__.
+The components in this diagram **constitute a Nextstrain "build" - i.e., a set of commands, parameters and input files which work together to reproducibly execute bioinformatic analyses and generate a JSON for visualization with Auspice.** You can learn more about builds `here <https://nextstrain.org/docs/bioinformatics/what-is-a-build>`__.
 
 Builds are particularly important if you frequently want to run several different analysis workflows or datasets. For example, if you wanted to run one analysis on just your data and another analysis that incorporates background / contextual sequences, you could configure two different *builds* (one for each of these workflows). This is covered in more detail in the `genomic surveillance tutorial <../tutorial/genomic-surveillance.html>`__.
