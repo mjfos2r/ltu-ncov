@@ -7,6 +7,7 @@ General Reference
    :titlesonly:
    :caption: Table of contents
 
+   glossary
    multiple_inputs
    remote_inputs
    configuration
