@@ -1360,13 +1360,27 @@ rule build_description:
                 > {output.description:q}
         """
 
+def get_auspice_config(w):
+    """
+    Auspice configs are chosen via this heirarchy:
+    1. A build-specific JSON
+    2. A `make_auspice_config` rule, if it exists
+    3. The file specified in the `config.files` dict
+    """
+    if "auspice_config" in config["builds"].get(w.build_name, {}):
+        return config["builds"][w.build_name]["auspice_config"]
+    if "make_auspice_config" in rules.__dict__:
+        return rules.make_auspice_config.output
+    return config["files"]["auspice_config"]
+
+
 rule export:
     message: "Exporting data files for Auspice"
     input:
         tree = rules.refine.output.tree,
         metadata="results/{build_name}/metadata_adjusted.tsv.xz",
         node_data = _get_node_data_by_wildcards,
-        auspice_config = lambda w: config["builds"][w.build_name]["auspice_config"] if "auspice_config" in config["builds"].get(w.build_name, {}) else config["files"]["auspice_config"],
+        auspice_config = get_auspice_config,
         colors = lambda w: config["builds"][w.build_name]["colors"] if "colors" in config["builds"].get(w.build_name, {}) else ( config["files"]["colors"] if "colors" in config["files"] else rules.colors.output.colors.format(**w) ),
         lat_longs = config["files"]["lat_longs"],
         description = rules.build_description.output.description

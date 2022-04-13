@@ -8,4 +8,4 @@ show-failed-logs: True
 restart-times: 1
 reason: True
 stats: stats.json
-set-threads: tree=4
+# set-threads: tree=4
