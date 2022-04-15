@@ -44,7 +44,7 @@ builds:
     subsampling_scheme: nextstrain_reference
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/global_auspice_config.json"
     title: Genomic epidemiology of SARS-CoV-2 with clade-focused subsampling
-  global_six-months:
+  global_6m:
     subsampling_scheme: nextstrain_global_6m
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/global_auspice_config.json"
     title: Genomic epidemiology of SARS-CoV-2 with subsampling focused globally over the past 6 months
@@ -52,7 +52,7 @@ builds:
     subsampling_scheme: nextstrain_global_all_time
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/global_auspice_config.json"
     title: Genomic epidemiology of SARS-CoV-2 with subsampling focused globally since pandemic start
-  africa_six-months:
+  africa_6m:
     subsampling_scheme: nextstrain_region_grouped_by_country_6m
     region: Africa
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/africa_auspice_config.json"
@@ -62,7 +62,7 @@ builds:
     region: Africa
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/africa_auspice_config.json"
     title: Genomic epidemiology of SARS-CoV-2 with subsampling focused on Africa since pandemic start
-  asia_six-months:
+  asia_6m:
     subsampling_scheme: nextstrain_region_grouped_by_country_6m
     region: Asia
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/asia_auspice_config.json"
@@ -72,7 +72,7 @@ builds:
     region: Asia
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/asia_auspice_config.json"
     title: Genomic epidemiology of SARS-CoV-2 with subsampling focused on Asia since pandemic start
-  europe_six-months:
+  europe_6m:
     subsampling_scheme: nextstrain_region_grouped_by_country_6m
     region: Europe
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/europe_auspice_config.json"
@@ -82,7 +82,7 @@ builds:
     region: Europe
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/europe_auspice_config.json"
     title: Genomic epidemiology of SARS-CoV-2 with subsampling focused on Europe since pandemic start
-  north-america_six-months:
+  north-america_6m:
     subsampling_scheme: nextstrain_region_grouped_by_division_6m
     region: North America
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/north-america_auspice_config.json"
@@ -92,7 +92,7 @@ builds:
     region: North America
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/north-america_auspice_config.json"
     title: Genomic epidemiology of SARS-CoV-2 with subsampling focused on North America since pandemic start
-  oceania_six-months:
+  oceania_6m:
     subsampling_scheme: nextstrain_region_grouped_by_division_6m
     region: Oceania
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/oceania_auspice_config.json"
@@ -102,7 +102,7 @@ builds:
     region: Oceania
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/oceania_auspice_config.json"
     title: Genomic epidemiology of SARS-CoV-2 with subsampling focused on Oceania since pandemic start
-  south-america_six-months:
+  south-america_6m:
     subsampling_scheme: nextstrain_region_grouped_by_country_6m
     region: South America
     auspice_config: "nextstrain_profiles/nextstrain-gisaid/south-america_auspice_config.json"
@@ -317,43 +317,43 @@ subsampling:
 # if different traits should be reconstructed for some builds, specify here
 # otherwise the default trait config in defaults/parameters.yaml will used
 traits:
-  global_six-months:
+  global_6m:
     sampling_bias_correction: 2.5
     columns: ["region"]
   global_all-time:
     sampling_bias_correction: 2.5
     columns: ["region"]
-  africa_six-months:
+  africa_6m:
     sampling_bias_correction: 2.5
     columns: ["country"]
   africa_all-time:
     sampling_bias_correction: 2.5
     columns: ["country"]
-  asia_six-months:
+  asia_6m:
     sampling_bias_correction: 2.5
     columns: ["country"]
   asia_all-time:
     sampling_bias_correction: 2.5
     columns: ["country"]
-  europe_six-months:
+  europe_6m:
     sampling_bias_correction: 2.5
     columns: ["country"]
   europe_all-time:
     sampling_bias_correction: 2.5
     columns: ["country"]
-  north-america_six-months:
+  north-america_6m:
     sampling_bias_correction: 2.5
     columns: ["division"]
   north-america_all-time:
     sampling_bias_correction: 2.5
     columns: ["division"]
-  oceania_six-months:
+  oceania_6m:
     sampling_bias_correction: 2.5
     columns: ["division"]
   oceania_all-time:
     sampling_bias_correction: 2.5
     columns: ["division"]
-  south-america_six-months:
+  south-america_6m:
     sampling_bias_correction: 2.5
     columns: ["country"]
   south-america_all-time:
@@ -361,47 +361,47 @@ traits:
     columns: ["country"]
 
 # Define frequencies parameters
-# Target frequencies to "six-month" vs "all-time" builds
+# Target frequencies to "6m" vs "all-time" builds
 frequencies:
-  global_six-months:
+  global_6m:
     recent_days_to_censor: 7
-    min_date: "2021-10-09"
+    min_date: "6M"
   global_all-time:
     recent_days_to_censor: 7
     min_date: "2020-01-01"
-  africa_six-months:
+  africa_6m:
     recent_days_to_censor: 7
-    min_date: "2021-10-09"
+    min_date: "6M"
   africa_all-time:
     recent_days_to_censor: 7
     min_date: "2020-01-01"
-  asia_six-months:
+  asia_6m:
     recent_days_to_censor: 7
-    min_date: "2021-10-09"
+    min_date: "6M"
   asia_all-time:
     recent_days_to_censor: 7
     min_date: "2020-01-01"
-  europe_six-months:
+  europe_6m:
     recent_days_to_censor: 7
-    min_date: "2021-10-09"
+    min_date: "6M"
   europe_all-time:
     recent_days_to_censor: 7
     min_date: "2020-01-01"
-  north-america_six-months:
+  north-america_6m:
     recent_days_to_censor: 7
-    min_date: "2021-10-09"
+    min_date: "6M"
   north-america_all-time:
     recent_days_to_censor: 7
     min_date: "2020-01-01"
-  oceania_six-months:
+  oceania_6m:
     recent_days_to_censor: 7
-    min_date: "2021-10-09"
+    min_date: "6M"
   oceania_all-time:
     recent_days_to_censor: 7
     min_date: "2020-01-01"
-  south-america_six-months:
+  south-america_6m:
     recent_days_to_censor: 7
-    min_date: "2021-10-09"
+    min_date: "6M"
   south-america_all-time:
     recent_days_to_censor: 7
     min_date: "2020-01-01"
